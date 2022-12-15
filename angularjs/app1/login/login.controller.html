@@ -1,0 +1,25 @@
+
+<div class="login-container">
+
+  <app-header class="header"></app-header>
+
+  <div class="form-container">
+    <form name="loginForm" novalidate>
+      <div class="email">
+        <label for="email">Email</label>
+        <input type="email" name="email" ng-model="vm.email" required>
+      </div>
+
+      <div class="password">
+        <label for="password">Password</label>
+        <input type="password" name="password" ng-model="vm.password" required>
+      </div>
+
+      <button type="submit" ng-click="vm.login(loginForm.$valid)">
+        Login
+      </button>
+
+    </form>
+  </div>
+
+</div>

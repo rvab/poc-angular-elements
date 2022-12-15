@@ -1,0 +1,24 @@
+
+<html>
+  <head>
+    <title>Angular Element POC</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body ng-app="app">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js" integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <div ui-view class="container"></div>
+
+    <script src="./module.js"></script>
+    <script src="./services/users.js"></script>
+    <script src="./services/auth.js"></script>
+    <script src="./components/app_header/app_header.component.js"></script>
+    <script src="./login/login.controller.js"></script>
+    <script src="./users/users.controller.js"></script>
+
+  </body>
+</html>
+  

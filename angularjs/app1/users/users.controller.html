@@ -1,0 +1,29 @@
+<div class="user-container">
+
+  <app-header class="header"></app-header>
+
+  <div class="users-container">
+
+    <div class="single-user" ng-repeat="item in vm.users track by item.id">
+      
+      <div class="img-container">
+        <img src="{{item.avatar}}">
+      </div>
+
+      <div class="name-email-container">
+        <div class="name">
+          {{ item.first_name }} {{ item.last_name }}
+        </div>
+
+        <div class="email">
+          {{ item.email }}
+        </div>
+
+      </div>
+
+    </div>
+  
+  </div>
+
+
+</div>
