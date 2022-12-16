@@ -23,6 +23,10 @@ function getAngularJSResource(serviceName: string) {
     {
       provide: 'AuthService',
       useFactory: () => getAngularJSResource('AuthService')
+    },
+    {
+      provide: '$state',
+      useFactory: () => getAngularJSResource('$state')
     }
   ],
   bootstrap: [],

@@ -16,7 +16,7 @@
     });
 
     $stateProvider.state('users', {
-      url: '/users',
+      url: '/users?email',
       templateUrl: 'users/users.controller.html',
       controller: 'UsersCtrl',
       controllerAs: 'vm',

@@ -12,7 +12,7 @@ export class LoginComponent {
   loginForm: FormGroup<{email: FormControl, password: FormControl}>;
   loginFailed = false;
 
-  constructor(private authService: AuthService) {
+  constructor(@Inject('$state') private $state: any, private authService: AuthService) {
     this.loginForm = new FormGroup<{email: FormControl, password: FormControl}>({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
@@ -27,7 +27,7 @@ export class LoginComponent {
       })
     ).subscribe(
       response => {
-        this.loginFailed = false;
+        this.$state.go('users', { email: this.loginForm.controls.email.value })
       }
     );
   }
