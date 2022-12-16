@@ -38,6 +38,38 @@ function watchChanges(done) {
   watch('angularjs/app1/**/*.scss', watchOptions, series(generateCSS));
 
   done();
+
+}
+
+function copyNgAssetFiles() {
+  let pipeStream = src('public/angular/assets/**/*.*');
+  return pipeStream.pipe(dest('./public/assets'));
+}
+
+function concatNgCSS() {
+  return src(['public/angular/**/*.css'], {
+    base: '.'
+  })
+  .pipe(concat('ng.min.css'))
+  .pipe(dest('public'))
+}
+
+function concatNgJs() {
+  return src(['public/angular/**/*.js'], {
+    base: '.'
+  })
+  .pipe(concat('ng.min.js'))
+  .pipe(dest('public/'))
+}
+
+function watchNgChanges(done) {
+  watch(['public/angular/**/*.js'], watchOptions, series(concatNgJs))
+
+  watch(['public/angular/**/*.css'], watchOptions, series(concatNgCSS))
+
+  watch(['public/angular/assets/*'], watchOptions, series(copyNgAssetFiles))
+
+  done();
 }
 
 module.exports = {
@@ -53,6 +85,12 @@ module.exports = {
     generateHTML,
     copyAssetFiles,
     generateCSS,
+
+    concatNgJs,
+    concatNgCSS,
+    copyNgAssetFiles,
+    watchNgChanges,
+
     watchChanges,
   )
 };
