@@ -5,12 +5,13 @@
 ### Build Setup
 
 * Clone `angular-element-poc` inside your workspace dir.
+* Switch to angular app `cd angular`
 * Install `nvm` for linux or mac from this [url](https://github.com/creationix/nvm#installation-and-update)
 * Install this specific version of `nodejs` using `nvm` : `nvm install v16` 
 * Check `nodejs` version by typing : `node -v`
 * If multiple versions are installed use the correct version : `nvm use v16` for Mac/Linux.
 * Remove `package-lock.json` and `node_modules` folders if they are exist in the directory
-* Install dependencies : `cd angular && npm install`
+* Install dependencies : `npm install`
 * Install http-server to serve the build files: `npm install -g http-server`
 * Perform the following steps in the same order in 2 parallel terminals:
   > npm run watch
