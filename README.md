@@ -10,11 +10,10 @@
 * Check `nodejs` version by typing : `node -v`
 * If multiple versions are installed use the correct version : `nvm use v16` for Mac/Linux.
 * Remove `package-lock.json` and `node_modules` folders if they are exist in the directory
-* Install dependencies : `npm install`
-* Install gulp cli to streamline building of files: `npm install -g gulp-cli`
+* Install dependencies : `cd angular && npm install`
 * Install http-server to serve the build files: `npm install -g http-server`
 * Perform the following steps in the same order in 2 parallel terminals:
-  > gulp watch
+  > npm run watch
 
   > http-server --path=public --port=4200
 
