@@ -8,6 +8,10 @@ import { createCustomElement } from '@angular/elements';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+function getAngularJSResource(serviceName: string) {
+  return (window as any).angular?.element(document.body).injector().get(serviceName);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,6 +19,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  providers: [
+    {
+      provide: 'AuthService',
+      useFactory: () => getAngularJSResource('AuthService')
+    }
+  ],
   bootstrap: [],
 })
 export class AppModule implements DoBootstrap {
