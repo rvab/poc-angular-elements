@@ -1,12 +1,12 @@
-<!-- <div class="user-container">
+<div class="user-container">
 
-  <div class="email">{{vm.email}}</div>
+  <div class="email">{{email}}</div>
 
   <app-header class="header"></app-header>
 
   <div class="users-container">
 
-    <div class="single-user" ng-repeat="item in vm.users track by item.id">
+    <div class="single-user" *ngFor="let item of users">
       
       <div class="img-container">
         <img src="{{item.avatar}}">
@@ -28,6 +28,4 @@
   </div>
 
 
-</div> -->
-
-<app-users-ce></app-users-ce>
+</div>
