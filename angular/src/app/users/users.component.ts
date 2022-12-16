@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
 import { UserService } from '../services/user.service';
 
@@ -11,10 +12,10 @@ export class UsersComponent {
   users: any[] = [];
   email: string = '';
 
-  constructor(@Inject('$stateParams') private $stateParams: any,private userService: UserService) {}
+  constructor(private activatedRoute: ActivatedRoute,private userService: UserService) {}
 
   ngOnInit() {
-    this.email = this.$stateParams.email;
+    this.email = this.activatedRoute.snapshot.queryParams['email'];
     this.userService.getUsers().pipe(
       catchError((error) => 
         throwError(() => error)
