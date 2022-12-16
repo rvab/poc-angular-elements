@@ -5,13 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import { createCustomElement } from '@angular/elements';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    LoginComponent
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   bootstrap: [],
 })
 export class AppModule implements DoBootstrap {
@@ -26,7 +29,8 @@ export class AppModule implements DoBootstrap {
   }
 
   ngDoBootstrap(appRef: ApplicationRef): void {
-    this.creteCustomElement(AppHeaderComponent, 'app-header-ce')
+    this.creteCustomElement(AppHeaderComponent, 'app-header-ce');
+    this.creteCustomElement(LoginComponent, 'app-login-ce')
   }
 
 }
